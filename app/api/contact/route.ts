@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 
     // Send notification to Kinjo
     const { error } = await resend.emails.send({
-      from: 'Kinjo Contact Form <hello@kinjollc.com>',
+      from: 'Kinjo Contact Form <tatsuki@kinjollc.com>',
       to: ['tatsuki@kinjollc.com'],
       replyTo: email,
       subject: `New inquiry: ${service_interest} — ${name}`,
