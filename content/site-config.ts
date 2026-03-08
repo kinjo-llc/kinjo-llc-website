@@ -7,7 +7,7 @@ export const siteConfig = {
   description:
     'Kinjo LLC is a veteran-led consulting and technology firm specializing in U.S.–Japan operational support, language and SIGINT expertise, mission advisory, and AI-enabled software development.',
   url: 'https://kinjollc.com',
-  email: 'hello@kinjollc.com',
+  email: 'tatsuki@kinjollc.com',
   footerBlurb:
     'Veteran-led consulting and technology — U.S.–Japan operational support, language and SIGINT expertise, and mission-focused technology for government and commercial organizations.',
 } as const
@@ -120,7 +120,7 @@ export const services: Service[] = [
 export const contactDetails = [
   {
     title: 'Email',
-    body: 'hello@kinjollc.com',
+    body: 'tatsuki@kinjollc.com',
   },
   {
     title: 'Response',

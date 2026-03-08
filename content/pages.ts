@@ -571,7 +571,7 @@ export const contactFormContent = {
 export const contactCtaContent = {
   headline: 'Prefer a direct introduction?',
   body: 'Reach out by email with a short note about your organization and requirements.',
-  primaryButton: { label: 'Email Kinjo LLC', href: 'mailto:hello@kinjollc.com' },
+  primaryButton: { label: 'Email Kinjo LLC', href: 'mailto:tatsuki@kinjollc.com' },
 }
 
 // ─── Legacy aliases — maintained for backward compatibility ──────────────────

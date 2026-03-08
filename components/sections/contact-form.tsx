@@ -354,10 +354,10 @@ export default function ContactForm() {
                   Direct contact
                 </p>
                 <a
-                  href="mailto:hello@kinjollc.com"
+                  href="mailto:tatsuki@kinjollc.com"
                   className="text-sm text-accent hover:text-accent-light transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
                 >
-                  hello@kinjollc.com
+                  tatsuki@kinjollc.com
                 </a>
                 <p className="text-xs text-muted mt-1.5">
                   Response within 1–2 business days
