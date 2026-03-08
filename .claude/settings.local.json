@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(npm install)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm --version)",
+      "Bash(ls \"C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\public\"\" 2>/dev/null && echo \"---\" && ls \"C:UserstatsuDownloads\"\")",
+      "Bash(npx next build)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(findstr :3000)",
+      "Bash(timeout 15 node \"C:\\\\Program Files\\\\nodejs\\\\node_modules\\\\npm\\\\bin\\\\npm-cli.js\" run dev)",
+      "Bash(npm run dev)",
+      "Bash(taskkill /F /PID 27944)",
+      "Bash(taskkill //F //PID 27944)",
+      "Bash(Remove-Item -Force \"C:/Users/tatsu/OneDrive/Apps/Claude Brain/kinjo-llc-website/.next/dev/lock\" -ErrorAction SilentlyContinue)",
+      "Bash(powershell.exe -Command \"Remove-Item -Recurse -Force ''C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\.next'' -ErrorAction SilentlyContinue; if \\(-not \\(Test-Path ''C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\.next''\\)\\) { Write-Output ''Cache cleared successfully'' } else { Write-Output ''.next still exists'' }\")",
+      "Bash(powershell -Command \"Start-Sleep -Seconds 2; Remove-Item -Recurse -Force ''C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\.next'' -ErrorAction SilentlyContinue; if \\(Test-Path ''C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\.next''\\) { Write-Host ''STILL EXISTS'' } else { Write-Host ''FULLY GONE'' }\")",
+      "Bash(Get-Content \"C:\\\\Users\\\\tatsu\\\\AppData\\\\Local\\\\Temp\\\\next-panic-*.log\" -ErrorAction SilentlyContinue)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(cmd /c \"rmdir /s /q \"\"C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\.next\"\"\")",
+      "Bash(node \"C:\\\\Program Files\\\\nodejs\\\\node_modules\\\\npm\\\\bin\\\\npm-cli.js\" exec -- tsc --noEmit)",
+      "Bash(node \"C:\\\\Program Files\\\\nodejs\\\\node_modules\\\\npm\\\\bin\\\\npm-cli.js\" run build)",
+      "Bash(cmd /c \"dir \"\"C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\.next\"\" /b 2>&1 | head -5\")",
+      "Bash(npm run build)"
+    ]
+  }
+}

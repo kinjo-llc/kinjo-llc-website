@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="7" fill="#020617"/>
+  <!-- Vertical stroke of K -->
+  <rect x="6" y="7" width="3.5" height="18" rx="1.75" fill="#06B6D4"/>
+  <!-- Upper arm of K -->
+  <path d="M9.5 16 L23 7.5" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Lower arm of K -->
+  <path d="M9.5 16 L23 24.5" stroke="#06B6D4" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Accent dot -->
+  <circle cx="25.5" cy="7" r="2" fill="#22D3EE" opacity="0.7"/>
+</svg>
