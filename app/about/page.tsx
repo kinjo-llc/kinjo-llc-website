@@ -12,6 +12,7 @@ import {
   missionApproachContent,
   aboutNameContent,
   operatingPrinciplesContent,
+  certificationsContent,
   aboutPositioningContent,
   aboutCtaContent,
 } from '@/content/pages'
@@ -188,8 +189,36 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* ── Positioning statement ───────────────────────────────────────────── */}
+      {/* ── Certifications ──────────────────────────────────────────────────── */}
       <Section className="bg-surface">
+        <Container>
+          <AnimateIn className="max-w-2xl">
+            <p className="text-caption font-mono tracking-caption uppercase text-accent mb-3">
+              Company Status
+            </p>
+            <h2 className="text-h3 font-bold text-foreground tracking-h3 text-balance mb-2">
+              {certificationsContent.heading}
+            </h2>
+            <p className="text-sm text-muted/70 mb-8">{certificationsContent.subheading}</p>
+            <div className="flex flex-col gap-3">
+              {certificationsContent.items.map((item) => (
+                <div
+                  key={item.title}
+                  className="flex items-center justify-between gap-4 px-5 py-4 rounded-lg border border-border/70 bg-primary/40"
+                >
+                  <p className="text-sm font-medium text-foreground leading-snug">{item.title}</p>
+                  <span className="shrink-0 text-xs font-mono text-accent/80 px-2 py-0.5 rounded border border-accent/20 bg-accent/5">
+                    {item.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </AnimateIn>
+        </Container>
+      </Section>
+
+      {/* ── Positioning statement ───────────────────────────────────────────── */}
+      <Section className="bg-background">
         <Container>
           <AnimateIn className="max-w-3xl mx-auto text-center">
             <h2 className="text-h2 font-bold text-foreground tracking-h2 text-balance mb-6">

@@ -22,7 +22,13 @@
       "Bash(node \"C:\\\\Program Files\\\\nodejs\\\\node_modules\\\\npm\\\\bin\\\\npm-cli.js\" exec -- tsc --noEmit)",
       "Bash(node \"C:\\\\Program Files\\\\nodejs\\\\node_modules\\\\npm\\\\bin\\\\npm-cli.js\" run build)",
       "Bash(cmd /c \"dir \"\"C:\\\\Users\\\\tatsu\\\\OneDrive\\\\Apps\\\\Claude Brain\\\\kinjo-llc-website\\\\.next\"\" /b 2>&1 | head -5\")",
-      "Bash(npm run build)"
+      "Bash(npm run build)",
+      "Bash(git add app/api/contact/route.ts)",
+      "Bash(git commit:*)",
+      "Bash(git push origin main)",
+      "Bash(git add next.config.ts public/robots.txt)",
+      "Bash(node -e \"require\\(''zod''\\)\")",
+      "Bash(git add app/about/page.tsx content/pages.ts .claude/settings.local.json)"
     ]
   }
 }

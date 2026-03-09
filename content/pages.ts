@@ -84,8 +84,8 @@ export const finalCtaContent = {
 export const aboutIntroContent = {
   headline: 'Built by a veteran. For the missions that matter.',
   subheadline:
-    'Kinjo LLC is a founder-led consulting and technology company built on over two decades of operational experience in U.S. defense environments.',
-  body: "The founder's background reflects a multicultural heritage rooted in Okinawa and Chinese ancestry, contributing to a broader understanding of East Asian cultural environments and U.S.–Japan operational contexts.",
+    'Kinjo LLC is a veteran-owned consulting and technology development company focused on mission support, language-enabled operations, and technical solutions supporting U.S. and allied operational environments.',
+  body: 'Kinjo LLC was founded by a retired United States Air Force veteran with more than 20 years of experience supporting operational environments in Japan and across U.S.–Japan security cooperation efforts.',
 }
 
 export const aboutFounderContent = {
@@ -122,6 +122,25 @@ export const operatingPrinciplesContent = {
     { title: 'Resilience — tested in operational environments' },
     { title: 'Mission focus — capabilities exist for real requirements' },
     { title: 'U.S.–Japan partnership — a strategic commitment' },
+  ],
+}
+
+export const certificationsContent = {
+  heading: 'Certifications',
+  subheading: 'In Progress',
+  items: [
+    {
+      title: 'Service-Disabled Veteran-Owned Small Business (SDVOSB)',
+      status: 'In Progress',
+    },
+    {
+      title: 'SAM.gov Registration',
+      status: 'In Progress',
+    },
+    {
+      title: 'Additional federal contracting certifications planned',
+      status: 'Planned',
+    },
   ],
 }
 
