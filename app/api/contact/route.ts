@@ -13,6 +13,7 @@ interface ContactFormPayload {
   organization?: string
   service_interest: string
   message: string
+  cf_turnstile_response: string
 }
 
 // ─── Validation ──────────────────────────────────────────────────────────────
@@ -40,6 +41,25 @@ function validate(data: ContactFormPayload): string | null {
 export async function POST(request: NextRequest) {
   try {
     const body: ContactFormPayload = await request.json()
+
+    // ── Turnstile verification ─────────────────────────────────────────────
+    if (!body.cf_turnstile_response) {
+      return NextResponse.json({ error: 'Human verification token missing.' }, { status: 400 })
+    }
+    const tsRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: process.env.TURNSTILE_SECRET_KEY,
+        response: body.cf_turnstile_response,
+      }),
+    })
+    const tsData = await tsRes.json()
+    if (!tsData.success) {
+      return NextResponse.json({ error: 'Human verification failed. Please try again.' }, { status: 400 })
+    }
+
+    // ── Form validation ────────────────────────────────────────────────────
     const validationError = validate(body)
 
     if (validationError) {

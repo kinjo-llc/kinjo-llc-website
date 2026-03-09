@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 import { CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import Section from '@/components/ui/section'
 import Container from '@/components/ui/container'
@@ -26,6 +27,7 @@ interface FormErrors {
   email?: string
   service_interest?: string
   message?: string
+  turnstile?: string
 }
 
 const MESSAGE_MAX = 3000
@@ -94,6 +96,8 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [status, setStatus] = useState<Status>('idle')
   const [serverError, setServerError] = useState<string | null>(null)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileRef = useRef<TurnstileInstance>(null)
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -114,6 +118,11 @@ export default function ContactForm() {
       return
     }
 
+    if (!turnstileToken) {
+      setErrors((prev) => ({ ...prev, turnstile: 'Please complete the human verification.' }))
+      return
+    }
+
     setStatus('loading')
     setServerError(null)
 
@@ -127,6 +136,7 @@ export default function ContactForm() {
           organization: form.organization.trim() || undefined,
           service_interest: form.service_interest,
           message: form.message.trim(),
+          cf_turnstile_response: turnstileToken,
         }),
       })
 
@@ -135,6 +145,8 @@ export default function ContactForm() {
       if (!res.ok) {
         setStatus('error')
         setServerError(data.error ?? 'Something went wrong. Please try again.')
+        turnstileRef.current?.reset()
+        setTurnstileToken(null)
         return
       }
 
@@ -142,6 +154,8 @@ export default function ContactForm() {
     } catch {
       setStatus('error')
       setServerError('Unable to send message. Please check your connection and try again.')
+      turnstileRef.current?.reset()
+      setTurnstileToken(null)
     }
   }
 
@@ -305,6 +319,24 @@ export default function ContactForm() {
                     <span aria-live="polite">{msgLen}</span> / {MESSAGE_MAX} characters
                   </p>
                 </div>
+              </div>
+
+              {/* Turnstile */}
+              <div>
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                  options={{ theme: 'dark' }}
+                  onSuccess={(token) => {
+                    setTurnstileToken(token)
+                    setErrors((prev) => ({ ...prev, turnstile: undefined }))
+                  }}
+                  onError={() => setTurnstileToken(null)}
+                  onExpire={() => setTurnstileToken(null)}
+                />
+                {errors.turnstile && (
+                  <span className={errorClass}>{errors.turnstile}</span>
+                )}
               </div>
 
               {/* Submit */}
