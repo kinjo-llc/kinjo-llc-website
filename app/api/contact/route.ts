@@ -93,6 +93,88 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // ── Auto-reply to submitter ────────────────────────────────────────────
+    const firstName = name.split(' ')[0]
+    const { error: replyError } = await resend.emails.send({
+      from: 'Kinjo LLC <noreply@kinjollc.com>',
+      to: [email],
+      subject: 'Thank you for contacting Kinjo LLC',
+      html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank you for contacting Kinjo LLC</title>
+</head>
+<body style="margin:0;padding:0;background-color:#020617;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#020617;padding:48px 16px;">
+    <tr>
+      <td align="center">
+        <table width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background-color:#0B1220;border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;">
+
+          <!-- Header bar -->
+          <tr>
+            <td style="height:4px;background:linear-gradient(90deg,#A8842A 0%,#C9A84C 100%);"></td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:48px 40px 40px;">
+
+              <!-- Wordmark -->
+              <p style="margin:0 0 36px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C9A84C;">KINJO</p>
+
+              <!-- Greeting -->
+              <p style="margin:0 0 20px;font-size:16px;line-height:1.6;color:#E5EEF7;">
+                ${firstName},
+              </p>
+
+              <!-- Body copy -->
+              <p style="margin:0 0 20px;font-size:16px;line-height:1.7;color:#94A3B8;">
+                Thank you for reaching out. Your inquiry has been received and is under review.
+              </p>
+              <p style="margin:0 0 20px;font-size:16px;line-height:1.7;color:#94A3B8;">
+                You can expect a response within <span style="color:#E5EEF7;font-weight:500;">1–2 business days</span>. If your matter is time-sensitive, you are welcome to reply directly to this email.
+              </p>
+
+              <!-- Divider -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin:36px 0;">
+                <tr>
+                  <td style="height:1px;background-color:rgba(255,255,255,0.07);"></td>
+                </tr>
+              </table>
+
+              <!-- Signature -->
+              <p style="margin:0 0 4px;font-size:15px;font-weight:600;color:#E5EEF7;">Tatsuki Kinjo</p>
+              <p style="margin:0 0 4px;font-size:14px;color:#94A3B8;">Kinjo LLC</p>
+              <a href="https://kinjollc.com" style="font-size:13px;color:#C9A84C;text-decoration:none;">kinjollc.com</a>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 40px 28px;border-top:1px solid rgba(255,255,255,0.06);">
+              <p style="margin:0;font-size:12px;color:rgba(148,163,184,0.5);line-height:1.6;">
+                This is an automated confirmation. Please do not reply to this message directly —
+                your original inquiry has been forwarded to our team.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`,
+    })
+
+    if (replyError) {
+      // Log but do not fail the request — the primary notification was already sent
+      console.warn('[contact/route] Auto-reply failed:', replyError)
+    }
+
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (err) {
     console.error('[contact/route] Unexpected error:', err)
