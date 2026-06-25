@@ -70,6 +70,15 @@ export default function Footer() {
             <p className="text-sm text-muted mt-3 leading-relaxed">
               Response within 1–2 business days
             </p>
+            <p className="text-caption font-mono tracking-caption uppercase text-muted/80 mt-5 mb-1">
+              Federal Contracting
+            </p>
+            <p className="text-xs font-mono text-muted/70 leading-relaxed">
+              SDVOSB · VOSB — SBA-Certified
+            </p>
+            <p className="text-xs font-mono text-muted/70 leading-relaxed">
+              UEI CECMHFKZZMS7 · CAGE 1Z5L0
+            </p>
           </div>
         </div>
 

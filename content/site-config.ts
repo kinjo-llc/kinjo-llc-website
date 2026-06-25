@@ -130,6 +130,10 @@ export const contactDetails = [
     title: 'Focus',
     body: 'Federal and commercial engagements in technology, intelligence, language, and consulting services',
   },
+  {
+    title: 'Certifications',
+    body: 'SDVOSB & VOSB (SBA-certified) · UEI CECMHFKZZMS7 · CAGE 1Z5L0 · NAICS 541611, 541690 · SAM.gov registered',
+  },
 ]
 
 // ─── Contact form ─────────────────────────────────────────────────────────────

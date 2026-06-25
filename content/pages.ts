@@ -126,20 +126,33 @@ export const operatingPrinciplesContent = {
 }
 
 export const certificationsContent = {
-  heading: 'Certifications',
-  subheading: 'In Progress',
+  heading: 'Certifications & Credentials',
+  subheading:
+    'SBA-certified SDVOSB and VOSB — registered and eligible for federal set-aside contracts.',
   items: [
     {
       title: 'Service-Disabled Veteran-Owned Small Business (SDVOSB)',
-      status: 'In Progress',
+      status: 'SBA-Certified',
+    },
+    {
+      title: 'Veteran-Owned Small Business (VOSB)',
+      status: 'SBA-Certified',
     },
     {
       title: 'SAM.gov Registration',
-      status: 'In Progress',
+      status: 'Active',
     },
     {
-      title: 'Additional federal contracting certifications planned',
-      status: 'Planned',
+      title: 'Unique Entity ID (UEI)',
+      status: 'CECMHFKZZMS7',
+    },
+    {
+      title: 'CAGE Code',
+      status: '1Z5L0',
+    },
+    {
+      title: 'NAICS Codes',
+      status: '541611 · 541690',
     },
   ],
 }
