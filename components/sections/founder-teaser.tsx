@@ -52,7 +52,7 @@ export default function FounderTeaser() {
               {/* Subtle divider */}
               <div className="mt-8 pt-6 border-t border-border/40">
                 <p className="text-xs text-muted/60 leading-relaxed">
-                  Kinjo LLC is a founder-operated organization — the founder's expertise is at the core of every engagement.
+                  Kinjo LLC is a founder-operated organization — the founder&apos;s expertise is at the core of every engagement.
                 </p>
               </div>
             </div>

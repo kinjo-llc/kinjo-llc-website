@@ -90,7 +90,7 @@ export default function Button(props: ButtonProps) {
     )
   }
 
-  const { href: _unused, ...buttonProps } = props as ButtonAsButton & { href?: undefined }
+  const buttonProps = props as ButtonAsButton
   return (
     <button className={classes} {...buttonProps}>
       {children}
